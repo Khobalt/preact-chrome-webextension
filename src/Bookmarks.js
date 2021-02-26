@@ -1,3 +1,4 @@
+/* eslint-env webextensions */
 import * as React from 'react';
 import Link from '@material-ui/core/Link';
 import Table from '@material-ui/core/Table';
@@ -47,6 +48,8 @@ const rows = [
     212.79,
   ),
 ];
+
+chrome.bookmarks.getTree(e => console.log(e));
 
 function preventDefault(event) {
   event.preventDefault();

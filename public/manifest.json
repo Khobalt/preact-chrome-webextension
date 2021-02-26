@@ -6,7 +6,8 @@
   "permissions": [
     "storage",
     "activeTab",
-    "scripting"
+    "scripting",
+    "bookmarks"
   ],
   "chrome_url_overrides" : {
     "bookmarks": "index.html"
