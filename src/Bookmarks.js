@@ -7,16 +7,12 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
-import { create } from '@material-ui/core/styles/transitions';
-import { Hidden } from '@material-ui/core';
 
 // Generate Order Data
 function createData(id, date, name, shipTo) {
   return { id, date, name, shipTo };
 }
 
-
-chrome.bookmarks.getTree(e => console.log(e));
 function getBookmarkArray(id, bookmarkArray) {
   chrome.bookmarks.getChildren(id, function (children) {
     children.forEach(function (bookmark) {
@@ -27,7 +23,41 @@ function getBookmarkArray(id, bookmarkArray) {
   return bookmarkArray;
 }
 
-let bookmarkArray = getBookmarkArray('0', []);
+let bookmarkArray = [];
+if (process.env.NODE_ENV !== 'production') {
+  bookmarkArray = [
+    {  id: 1,
+      title: "Super page!",
+      url: "http://woweee.com",
+      dateAdded:15
+    },
+    {  id: 2,
+      title: "Mega page!",
+      url: "http://aeee.com",
+      dateAdded:12
+    },
+    {
+      id: 3,
+     title:  "Dunno page!",
+     url:  "http://bbbbeee.com",
+      dateAdded:13
+    },
+    {
+      id: 4,
+     title:  "Help Me, I'm running out of title ideas",
+     url:  "http://ccccee.com",
+      dateAdded:10
+    },
+    {
+      id: 5,
+     title:  "Where do you go? Downtown",
+     url:  "http://ddddee.com",
+      dateAdded:11
+    }
+  ]
+}else{
+  bookmarkArray = getBookmarkArray('0', []);
+}
 console.log(bookmarkArray);
 let rows = [];
 bookmarkArray.forEach((item) => {
