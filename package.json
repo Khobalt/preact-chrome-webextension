@@ -6,13 +6,14 @@
     "@babel/helper-builder-react-jsx": "latest",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
-    "@material-ui/core": "^5.0.0-alpha.25",
+    "@material-ui/core": "^4",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "@testing-library/user-event": "latest",
     "preact": "latest",
     "react-scripts": "^3.4.3",
+    "react-virtualized": "^9.22.3",
     "recharts": "^2.0.8",
     "typescript": "^4.2.2"
   },
@@ -35,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-virtualized": "^9.21.11",
     "customize-cra": "latest",
     "react-app-rewired": "latest"
   }
