@@ -229,7 +229,13 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     maxHeight: 440,
-  }
+  },
+  truncate : {
+    width: '300px',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
 }));
 
 export default function EnhancedTable() {
@@ -345,7 +351,7 @@ export default function EnhancedTable() {
                       <TableCell component="th" id={labelId} scope="row" padding="none">
                         {row.name}
                       </TableCell>
-                      <TableCell align="left"><a href={row.url}>{row.title}</a></TableCell>
+                      <TableCell align="left"><div className={classes.truncate}><a href={row.url}>{row.title}</a></div></TableCell>
                       <TableCell align="left">{formatDate(row.dateAdded)}</TableCell>
                     </TableRow>
                   );
