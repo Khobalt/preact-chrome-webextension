@@ -90,9 +90,8 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Select All' },
   { id: 'title', numeric: false, disablePadding: false, label: 'Title' },
-  { id: 'date', numeric: false, disablePadding: false, label: 'Date Added' },
+  { id: 'dateAdded', numeric: false, disablePadding: false, label: 'Date Added' },
 ];
 
 function EnhancedTableHead(props) {
@@ -351,9 +350,6 @@ export default function EnhancedTable() {
                           checked={isItemSelected}
                           inputProps={{ 'aria-labelledby': labelId }}
                         />
-                      </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.name}
                       </TableCell>
                       <TableCell align="left"><div className={classes.truncate}><a href={row.url}>{row.title}</a></div></TableCell>
                       <TableCell align="left">{formatDate(row.dateAdded)}</TableCell>
