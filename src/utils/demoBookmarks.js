@@ -1,4 +1,6 @@
-const bookmarks = [
+module.exports = {
+  getBookmarks: () =>
+  [
     {  id: 1,
       title: "Super page!",
       url: "http://woweee.com",
@@ -111,6 +113,4 @@ const bookmarks = [
      url:  "http://ddddee.com",
       dateAdded:11
     },
-]
-
-export default bookmarks;
+]};
