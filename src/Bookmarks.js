@@ -26,12 +26,6 @@ if (process.env.NODE_ENV !== 'production') {
   var demoBookmarks = require('./utils/demoBookmarks').getBookmarks();
 }
 
-
-// Generate Bookmark Data
-function createData(id, date, name, shipTo) {
-  return { id, date, name, shipTo };
-}
-
 function getBookmarkArray(id, bookmarkArray) {
   chrome.bookmarks.getChildren(id, function (children) {
     children.forEach(function (bookmark) {
@@ -42,25 +36,13 @@ function getBookmarkArray(id, bookmarkArray) {
   return bookmarkArray;
 }
 
-let bookmarkArray = [];
+let rows = [];
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
-  bookmarkArray = demoBookmarks;
+  rows = demoBookmarks;
 }else{
-  bookmarkArray = getBookmarkArray('0', []);
+  rows = getBookmarkArray('0', []);
 }
-console.log(bookmarkArray);
-let rows = [];
-bookmarkArray.forEach((item) => {
-  rows.push(createData(
-    item.id,
-    item.title,
-    item.url,
-    item.dateAdded
-  ));
-});
-
-rows = bookmarkArray;
 
 
 function descendingComparator(a, b, orderBy) {
