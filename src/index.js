@@ -1,4 +1,9 @@
-import 'preact/debug';
+/* eslint-disable import/first */
+// eslint-disable-next-line no-undef
+if (process.env.NODE_ENV !== 'production') {
+  require('preact/debug');
+}
+
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';

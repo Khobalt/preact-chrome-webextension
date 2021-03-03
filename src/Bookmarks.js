@@ -21,7 +21,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import demoBookmarks from './demoBookmarks';
+// eslint-disable-next-line no-undef
+if (process.env.NODE_ENV !== 'production') {
+  var demoBookmarks = require('../utils/demoBookmarks');
+}
 
 
 // Generate Bookmark Data
@@ -40,6 +43,7 @@ function getBookmarkArray(id, bookmarkArray) {
 }
 
 let bookmarkArray = [];
+// eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
   bookmarkArray = demoBookmarks;
 }else{
