@@ -23,8 +23,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
-  let getDemoBookmarks = require('./utils/demoBookmarks');
-  var demoBookmarks = getDemoBookmarks.getBookmarks();
+  var demoBookmarks = require('./utils/demoBookmarks').getBookmarks();
 }
 
 
