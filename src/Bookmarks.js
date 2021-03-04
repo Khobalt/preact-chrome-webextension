@@ -40,7 +40,7 @@ let rows = [];
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
   rows = demoBookmarks;
-}else{
+} else {
   rows = getBookmarkArray('0', []);
 }
 
@@ -137,13 +137,13 @@ const useToolbarStyles = makeStyles((theme) => ({
   highlight:
     theme.palette.type === 'light'
       ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        }
+        color: theme.palette.secondary.main,
+        backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+      }
       : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
-        },
+        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.secondary.dark,
+      },
   title: {
     flex: '1 1 100%',
   },
@@ -164,10 +164,10 @@ const EnhancedTableToolbar = (props) => {
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Bookmarks
-        </Typography>
-      )}
+          <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
+            Bookmarks
+          </Typography>
+        )}
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
@@ -176,12 +176,12 @@ const EnhancedTableToolbar = (props) => {
           </IconButton>
         </Tooltip>
       ) : (
-        <Tooltip title="Filter list">
-          <IconButton aria-label="filter list">
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
+          <Tooltip title="Filter list">
+            <IconButton aria-label="filter list">
+              <FilterListIcon />
+            </IconButton>
+          </Tooltip>
+        )}
     </Toolbar>
   );
 };
@@ -215,7 +215,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     maxHeight: 440,
   },
-  truncate : {
+  truncate: {
     width: '300px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
@@ -282,7 +282,7 @@ export default function EnhancedTable() {
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
-  const formatDate = (dateArg)=>{
+  const formatDate = (dateArg) => {
     let [month, date, year] = new Date(dateArg).toLocaleDateString("en-US").split("/");
     return `${month}/${date}/${year}`;
   }
