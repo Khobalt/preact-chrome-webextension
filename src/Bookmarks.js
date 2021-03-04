@@ -210,7 +210,8 @@ if (process.env.NODE_ENV !== 'production') {
 function getBookmarkArray(id, bookmarkArray) {
   chrome.bookmarks.getChildren(id, function (children) {
     children.forEach(function (bookmark) {
-      bookmarkArray.push(bookmark);
+      if(bookmark.title.length === 0) {bookmark.title = bookmark.url};
+      if(bookmark.url) {bookmarkArray.push(bookmark)};
       getBookmarkArray(bookmark.id, bookmarkArray);
     });
   });
