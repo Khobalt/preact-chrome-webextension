@@ -21,28 +21,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
-// eslint-disable-next-line no-undef
-if (process.env.NODE_ENV !== 'production') {
-  var demoBookmarks = require('./utils/demoBookmarks').getBookmarks();
-}
-
-function getBookmarkArray(id, bookmarkArray) {
-  chrome.bookmarks.getChildren(id, function (children) {
-    children.forEach(function (bookmark) {
-      bookmarkArray.push(bookmark);
-      getBookmarkArray(bookmark.id, bookmarkArray);
-    });
-  });
-  return bookmarkArray;
-}
-
-let rows = [];
-// eslint-disable-next-line no-undef
-if (process.env.NODE_ENV !== 'production') {
-  rows = demoBookmarks;
-} else {
-  rows = getBookmarkArray('0', []);
-}
 
 
 function descendingComparator(a, b, orderBy) {
@@ -223,6 +201,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// eslint-disable-next-line no-undef
+if (process.env.NODE_ENV !== 'production') {
+  var demoBookmarks = require('./utils/demoBookmarks').getBookmarks();
+} else {
+  var rowsObj = getBookmarkArray('0', []);
+}
+function getBookmarkArray(id, bookmarkArray) {
+  chrome.bookmarks.getChildren(id, function (children) {
+    children.forEach(function (bookmark) {
+      bookmarkArray.push(bookmark);
+      getBookmarkArray(bookmark.id, bookmarkArray);
+    });
+  });
+  return bookmarkArray;
+}
+
 export default function EnhancedTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
@@ -231,6 +225,14 @@ export default function EnhancedTable() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  let [rows, setRows] = React.useState([]);
+
+  // eslint-disable-next-line no-undef
+  if (process.env.NODE_ENV !== 'production') {
+    setRows(demoBookmarks);
+  } else {
+    setTimeout(() => { setRows(rowsObj) }, 100);
+  }
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
