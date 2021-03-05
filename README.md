@@ -1,29 +1,24 @@
-# Preact example
+# Bookmark Manager
 
-## How to use
+![Bookmark Manager](/screenshot.png)
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+Bookmark manager created in [preact](https://preactjs.com/) with [material-ui](https://material-ui.com/),  
+mostly leveraging the [table component](https://material-ui.com/components/tables/). Preact is used   
+to keep the bundle size down, however in the context  
+of a web-extension, this can introduve quite a few  
+challenges to development.  
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/next | tar -xz --strip=2  material-ui-next/examples/preact
-cd preact
+## How to run with it:
+
+1. Clone/fork this repo
+2. Hit the terminal:
+```shell
+yarn
+yarn start     #Rapid development with watched folder
+yarn build     #Deploy to './build' directory
+
 ```
+3. At this point take eveything in the build folder and [follow these instructions](https://developer.chrome.com/docs/extensions/mv2/getstarted/)
 
-Install it and run:
-
-```sh
-npm install
-npm run start
-```
-
-or:
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/HEAD/examples/preact)
-
-## The idea behind the example
-
-The project uses [Preact](https://github.com/developit/preact), which is a fast 3kB alternative to React with the same modern API.
-
-This example uses CRA with `react-app-rewired` for adding webpack aliases for preact.
-
-It includes `@material-ui/core` and its peer dependencies, including `emotion`, the default style engine in Material-UI v5. If you prefer, you can [use styled-components instead](https://next.material-ui.com/guides/interoperability/#styled-components).
+### Questions? Concerns? Haikus? 
+Hit the issues section.
