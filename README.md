@@ -21,4 +21,4 @@ yarn build     #Deploy to './build' directory
 3. At this point take eveything in the build folder and [follow these instructions](https://developer.chrome.com/docs/extensions/mv2/getstarted/)
 
 ### Questions? Concerns? Haikus? 
-Hit the issues section.
+[Hit the issues section.](https://github.com/Khobalt/preact-chrome-webextension/issues)
